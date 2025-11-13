@@ -5,24 +5,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="style.css">
   <title>Frontend Mentor | GitHub user search app</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
+    <div class="container">
+      <header class="header">
+        <h1 class="logo">devfinder</h1>
 
-  devfinder
+        <button class="theme-toggle " aria-pressed="false" aria-label="Toggle-theme">
+          <span class="theme-label">DARK</span>
+          <span class="theme-icon"><img src="/github-user-search-app/starter-code/assets/icon-moon.svg" alt="dark moon"></span>
+        </button>
+      </header>
 
-  Light
-  Dark
+      <form class="search" novalidate>
+        <img src="/github-user-search-app/starter-code/assets/icon-search.svg" alt="search icon">
+        <input 
+        type="text"
+        class="search-input"
+        name="username"
+        placeholder="Search GitHub Username...."
+        autocomplete="off"
+        />
+        <button class="search-btn" type="submit">Search</button>
+      </form>
 
-  Search GitHub username...
-  Search
+      <section class="card" aria-live="polite">
+        <div class="image-icon">
+          <img src="/github-user-search-app/starter-code/young-man-workplace/52694.jpg" alt="man on the computer screen ">
+        </div>
+        <div class="card-body">
+          <div class="card-header">
+            <div>
+              <h2 class ='name'>The Screenman</h2>
+              <p class="login">@Screenman</p>
+            </div>
+            <p class="joined">Joined in 2025</p>
+          </div>
+          
+          <p class="bio">Yet not I that live but Christ that lives through me.</p>
+        </div>
+        <div class="stats">
+          <div><p>Repos</p><strong class="repos">8</strong></div>
+          <div><p>Followers</p><strong class="followers">499</strong></div>
+          <div><p>Following</p><strong class="following">9</strong></div>          
+        </div>
+        <ul>
+            <li class="location">
+              <img class="icon-img" src="./assets/icon-location.svg" alt="location icon">
+              <span class="location-text">Seated with Christ...</span>
+            </li>
 
-  Joined
+            <li class="git-link">
+              <img class="icon-img" src="./assets/icon-website.svg" alt="website icon">
+              <a class="website-text" href="#">The Goodness of God</a>
+            </li>
 
-  Repos
-  Followers
-  Following
+            <li class="twitter">
+              <img class="icon-img" src="./assets/icon-twitter.svg" alt="twitter icon">
+              <span class="twitter-text">John 15:13</span>
+            </li>
 
+            <li class="company">
+              <img class="icon-img" src="./assets/icon-company.svg" alt="company icon">
+              <span class="company-text">The Cross</span>
+            </li>
+          </ul>
+
+      </section>  
+    </div>
+    <script src="app.js"></script>
 </body>
 </html>

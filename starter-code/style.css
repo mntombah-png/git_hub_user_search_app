@@ -1,0 +1,239 @@
+:root{
+  --bg: #f6f8ff;
+  --panel: #fefefe;
+  --text: #222731;
+  --muted: #4B6A9B;
+  --accent: #0079ff;
+  --stat-bg: #f6f8ff;
+  --focus-text: #697C9A;
+   --radius: 12px;
+  --shadow: 0 16px 30px rgba(70,96,187,.2);
+  --icon-color: #222731; 
+}
+
+:root.dark {
+  --bg: #0d1117;
+  --panel: #161b22;
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --accent: #3b82f6;
+  --stat-bg: #0f1622;          
+  --focus-text: #a0b3d1;       
+  --icon-color: var(--panel);  
+  --radius: 12px;
+  --shadow: 0 8px 24px rgba(0,0,0,.3);
+}
+
+
+
+*{ box-sizing: border-box;} /*Using default border-padding- for the box*/
+html,body{height: 100%;}  /*using the full section for the height */
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+body {
+  margin: 0;
+  font-family: 'Space Mono', monospace;
+}
+.container{
+    max-width : 730px;/*Keep the max width to the size of the figma design */
+    margin: 40px auto; /* used  40px for the margin top and then auto for ther horizontal centering  */
+    padding: 0 16px;/* normally noi padding but the 16 is for the phone spacing*/ 
+}
+.header{
+    display : flex;
+    justify-content: space-between;
+    margin-bottom: 0px;
+    align-items: center;
+    
+}
+.theme-toggle{
+    background-color: var(--bg);
+    border: solid transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 100px;
+    padding: .25rem .5rem;
+    /*box-shadow: 10px 10px var(--bg);  After the final then customise*/ 
+}
+.theme-toggle span{
+  font-family: 'Space Mono', monospace , Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+
+}
+.theme-toggle:hover { 
+  border-color: var(--text);
+  cursor: pointer;
+}
+.search{
+  display: flex; 
+  align-items: center; 
+  height: auto;
+  gap: .75rem;
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: 1rem .5rem 1rem .75rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 40px;
+  overflow: hidden; 
+}
+.search-btn{
+  
+  background: var(--accent);
+  color: #fff;
+  border: 0;
+  border-radius: 10px;
+  gap: 10px;
+  padding: .85rem 2rem;
+  font-family: 'Space Mono', monospace;
+  font-weight: 600;
+  margin: 0;      
+  font-size: 18px;           
+}
+.search-btn:hover{
+  cursor: pointer;
+}
+/* :root.dark .search-btn:hover{
+  border-color: #0079ff;
+
+} */
+.search-input{
+  flex: 1;
+  min-width: 0;                 
+  border: none;                 
+  outline: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 20px
+  ;
+    
+}
+.search{ white-space: nowrap; }   
+.search-input:focus {
+  outline: none;
+}
+.card{
+  display: grid;                                  
+  grid-template-columns: 117px minmax(0,1fr);
+  gap: 2rem;
+  padding: 2rem;
+  background-color: var(--panel);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+
+}
+
+.card-body{ grid-column: 2; min-width: 0; }       
+.stats{ grid-column: 2; }                          
+.card > ul{ grid-column: 2; }                      
+
+
+.image-icon{
+  height: 117px;
+  width: 117px;
+  border: none;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.image-icon img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.card-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  min-width: 0;
+}
+.login{
+  margin-top: .5rem;
+  color: var(--accent);
+}
+
+.stats{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  background: var(--stat-bg);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+  margin: 1rem 0;
+}
+:root.dark .joined{
+  color: #FFFFFF;
+}
+.joined{
+  color: var(--muted);
+}
+
+.bio{
+  margin: 0;
+  color: var(--focus-text);
+}
+.stats p{ 
+  margin:0; 
+  color: var(--muted); 
+  font-size:.9rem;
+ }
+.stats strong{
+  display:block; 
+  margin-top:.25rem; 
+  font-size:1.25rem; 
+  color: var(--text); 
+}
+:root.dark .stats p{
+  color: #f6f8ff;
+
+}
+.card > ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;/*Fixing the extra spacing to the left after removing the dots */
+  display: grid;
+  grid-template-columns:1fr 1fr;
+  gap: 16px 32px;
+}
+:root .website-text {
+  color: var(--muted);
+
+}
+.website-text {
+  text-decoration: none;
+  color: var(--text); 
+}
+.card > ul > li{
+  color: var(--muted);
+  
+}
+.card > ul > li a {
+  color: var(--accent);
+  text-decoration: none;        
+  word-break: break-all;        
+  overflow-wrap: anywhere;      
+  display: inline-block;
+  max-width: 100%;              
+}
+:root.dark .card > ul > li {
+  color: #FFFFFF;   
+}
+.icon-img {
+  filter: brightness(0.2);
+  transition: filter .2s;
+}
+
+
+.icon {
+  fill: var(--muted);
+  transition: fill 0.3s ease;
+}
+.icon-img { filter: brightness(0.2); }        
+:root.dark .icon-img { filter: brightness(2); }
