@@ -73,7 +73,7 @@ body {
 .search{
   display: flex; 
   align-items: center; 
-  height: auto;
+  height: 48px;
   gap: .75rem;
   background: var(--panel);
   border-radius: var(--radius);
@@ -109,7 +109,7 @@ body {
   outline: none;
   background: transparent;
   color: var(--text);
-  font-size: 20px
+  font-size: 20px;
   ;
     
 }
@@ -146,6 +146,8 @@ body {
   object-fit: cover;
   border-radius: 50%;
 }
+
+img { max-width: 100%; height: auto; }
 
 .card-header{
   display: flex;
@@ -237,3 +239,95 @@ body {
 }
 .icon-img { filter: brightness(0.2); }        
 :root.dark .icon-img { filter: brightness(2); }
+
+
+/* ====== MOBILE BASE (add at end) ====== */
+
+/* Search bar look: pill, icon + input + button */
+.search {
+  height: 56px;
+  padding: 0 8px 0 16px;           /* tight vertical, breathing horizontal */
+  gap: 12px;
+  border-radius: 16px;              /* rounder like the mock */
+}
+.search img {                       /* the magnifier icon inside the form */
+  width: 24px;
+  height: 24px;
+  opacity: .9;                      /* slightly softened */
+}
+.search-input {
+  font-size: 16px;
+}
+.search-input::placeholder {
+  color: var(--muted);
+  opacity: .9;
+}
+.search-btn {
+  height: 44px;
+  padding: 0 18px;
+  font-size: 16px;
+  border-radius: 12px;
+}
+
+/* Card becomes a single column on phones */
+.card {
+  grid-template-columns: 1fr;       /* 1 column on mobile */
+  gap: 20px;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+/* Avatar centered on top (mobile) */
+.image-icon { margin: 0 auto; }
+
+/* Ensure text never pushes layout */
+.card-body, .stats, .card > ul { grid-column: 1; min-width: 0; }
+
+/* Stats panel matches mock (3 equal cells, rounded, tinted bg) */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  background: var(--stat-bg);
+  padding: 16px 20px;
+  border-radius: 12px;
+}
+
+/* Links list: one column on phones */
+.card > ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+/* Long URLs never break the card */
+.card > ul > li a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+/* Make images safe everywhere */
+img { max-width: 100%; height: auto; }
+
+
+@media (min-width: 600px) {
+  .card { padding: 24px; }
+
+  /* link list becomes two columns like the mock */
+  .card > ul {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 24px;
+  }
+}
+@media (min-width: 768px) {
+  /* restore your two-column card: avatar left, content right */
+  .card {
+    grid-template-columns: 117px minmax(0, 1fr);
+    gap: 32px;
+    padding: 32px;
+  }
+
+  .image-icon { margin: 0; }        /* no centering on desktop */
+  .card-body, .stats, .card > ul { grid-column: 2; }
+}

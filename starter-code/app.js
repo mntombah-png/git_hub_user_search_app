@@ -38,8 +38,8 @@ form.addEventListener('submit',async function (e)
 /*Getting the info from the API*/
 async function getUser(username){
     try {
-        const url = `https://api.github.com/users/${encodeURIComponent(username)}`;
-        console.log({username})
+      console.log({username})
+      const url = `https://api.github.com/users/${encodeURIComponent(username)}`;
         const response  = await fetch(url);
 
         if(!response.ok){
